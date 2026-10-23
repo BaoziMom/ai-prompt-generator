@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>補教專用提示詞產生器｜包子媽</title>
+<style>
+:root{--purple:#6947c5;--deep:#38285c;--ink:#2e2840;--muted:#70687e;--orange:#ef9552;--line:#e5dff0;--paper:#fff;--soft:#f5f0fc}*{box-sizing:border-box}body{margin:0;background:#f8f6fb;color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC",sans-serif;line-height:1.65}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}input:focus,select:focus,textarea:focus{outline:2px solid #a88bdf;outline-offset:2px}header{border-bottom:1px solid var(--line);background:#fff}.header-inner{max-width:1280px;margin:auto;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;gap:12px;align-items:center;font-weight:800;color:var(--deep)}.mark{display:grid;place-items:center;width:40px;height:40px;background:var(--purple);color:white;border-radius:13px;font-size:17px}.byline{font-size:13px;color:var(--muted)}main{max-width:1280px;margin:auto;padding:36px 32px 55px}.eyebrow{color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.hero{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-bottom:28px}h1{font-size:clamp(28px,3.4vw,42px);line-height:1.35;letter-spacing:-.03em;margin:7px 0 12px;color:var(--deep)}.hero p{margin:0;color:var(--muted)}.hero-note{background:#fff0e2;border:1px solid #f6d8bb;border-radius:18px;padding:16px 20px;min-width:225px;font-size:14px}.hero-note b{display:block;color:#955220}.layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:24px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:23px;padding:26px;box-shadow:0 8px 25px #49336105}.section-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}.step{border-radius:9px;background:var(--soft);color:var(--purple);padding:3px 9px;font-size:13px;font-weight:bold}h2{font-size:19px;margin:0;color:var(--deep)}.task-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:24px}.task{border:1px solid var(--line);background:white;color:var(--muted);border-radius:13px;min-height:58px;padding:9px;font-size:14px}.task[aria-pressed="true"]{background:var(--purple);border-color:var(--purple);color:white;box-shadow:0 4px 12px #6947c52a}.task:hover{border-color:var(--purple)}.task-desc{background:#f7f4fc;border-radius:13px;padding:13px 16px;font-size:14px;margin-bottom:22px;color:#65557c}.form-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.form-top h3{margin:0;font-size:16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:block;font-size:14px;font-weight:700}.field.full{grid-column:1/-1}.hint{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:4px}.required{color:#a14b25;font-size:12px;margin-left:5px}input,select,textarea{width:100%;border:1px solid #dcd5e6;border-radius:10px;padding:10px 12px;background:#fff;color:var(--ink);margin-top:6px;font-weight:400;font-size:15px}textarea{resize:vertical;min-height:92px;line-height:1.6}input::placeholder,textarea::placeholder{color:#a49bac;font-size:13px}.divider{border:0;border-top:1px solid var(--line);margin:24px 0}.settings{display:grid;grid-template-columns:1fr 1fr;gap:16px}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px}.primary{border:1px solid var(--purple);background:var(--purple);color:white;padding:12px 22px;border-radius:12px;font-weight:700}.secondary{background:white;border:1px solid var(--line);color:var(--deep);padding:10px 17px;border-radius:12px}.primary:hover{background:#5737ad}.secondary:hover{background:var(--soft)}.primary:disabled,.secondary:disabled{opacity:.45;cursor:default}.status{min-height:24px;font-size:13px;margin:12px 0 0;color:#795125}.output-panel{position:relative;border-top:4px solid var(--orange)}.output-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px}.tag{font-size:11px;color:#8c572c;background:#fff0e2;padding:4px 9px;border-radius:20px;white-space:nowrap}#output{min-height:435px;background:#fcfbfe;border-color:#e5def1;font-size:15px;line-height:1.85;margin:0;padding:18px}#output.dirty{border-color:#dc9b55}.output-meta{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted);margin-top:8px}.howto{margin-top:24px;padding:18px;background:#f7f4fc;border-radius:14px;font-size:13px;color:#65557c}.howto b{color:var(--deep);font-size:14px}.howto ol{margin:8px 0 0;padding-left:23px}.howto li{margin:5px 0}.privacy{font-size:12px;color:var(--muted);margin-top:18px}footer{max-width:1280px;margin:auto;border-top:1px solid var(--line);padding:23px 32px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:16px}#toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:var(--deep);color:white;border-radius:12px;padding:13px 20px;z-index:20;max-width:90vw;display:none;font-size:14px}#toast.visible{display:block}details{font-size:13px;color:var(--muted);margin-top:14px}summary{cursor:pointer;color:var(--purple)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.output-panel{position:static}.hero-note{display:none}#output{min-height:370px}.hero{margin-bottom:24px}}
+@media(max-width:520px){.header-inner{padding:16px 18px}.byline{font-size:11px}.brand{font-size:14px;gap:8px}.mark{width:33px;height:33px}main{padding:26px 14px 35px}.panel{padding:20px 17px;border-radius:18px}.hero p{font-size:14px}.fields,.settings{grid-template-columns:1fr}.field.full{grid-column:auto}.task-nav{grid-template-columns:repeat(2,1fr)}.output-head{align-items:flex-start}.tag{font-size:10px}.actions .primary{flex:1}.actions .secondary{flex:1}footer{padding:20px 18px;flex-direction:column;gap:4px}#output{min-height:440px;font-size:14px}.form-top{align-items:flex-start}}
+@media print{header,.hero,.input-panel,.actions,.howto,.privacy,footer,.output-meta,.tag,#toast,details{display:none!important}main{padding:0}.layout{display:block}.output-panel{box-shadow:none;border:0;position:static}#output{display:none}#print-output{display:block!important;white-space:pre-wrap;font-size:12pt}}#print-output{display:none}
+</style>
+<style>.platform-box{background:#f7f4fc;border:1px solid #e5def1;border-radius:12px;padding:14px 16px}.platform-box fieldset{border:0;padding:12px 0 0;margin:0}.platform-box fieldset[hidden]{display:none}.platform-box legend{font-size:12px;font-weight:400;padding:0;color:var(--muted)}.platform-box fieldset label{display:inline-flex;align-items:center;font-size:13px;font-weight:400;margin:6px 14px 3px 0;gap:7px}.platform-box input[type=checkbox]{width:17px;height:17px;margin:0;accent-color:var(--purple)}.platform-box .hint{margin-top:8px}</style><style>.settings[hidden],.reuse-tools[hidden]{display:none}.reuse-tools{background:#f7f4fc;border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin:0 0 22px}.reuse-row{display:flex;gap:10px;align-items:end}.reuse-row select{margin:6px 0 0;flex:1;min-width:0}.reuse-row button{white-space:nowrap}.validation-note{margin:8px 0 0;color:#a14b25;font-size:13px}@media(max-width:520px){.reuse-row{flex-wrap:wrap}.reuse-row button{width:100%}}</style><style>.data-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:22px}.data-tools span{font-size:12px;color:var(--muted)}.output-panel{scroll-margin-top:16px}input[hidden]{display:none!important}#task-options:empty{display:none}@media(max-width:520px){.data-tools .secondary{font-size:13px;padding:8px 12px}}</style></head>
+<body>
+<header><div class="header-inner"><div class="brand"><span class="mark" aria-hidden="true">P</span>補教專用提示詞產生器</div><div class="byline">@Baozi Mom</div></div></header>
+<main>
+<div class="hero"><div><div class="eyebrow">Teaching & Marketing Toolkit</div><h1>把補教日常，變成好提示詞。</h1><p>選用途、填資料、複製提示詞，再交給 AI 完成。</p></div><div class="hero-note"><b>從招生到教學，一次備好。</b>六種常用情境，依任務調整欄位。<br>單一檔案，下載後也能離線使用。</div></div>
+<div class="data-tools"><button class="secondary" id="export-data" type="button">匯出填寫資料</button><button class="secondary" id="import-data" type="button">匯入填寫資料</button><input type="file" id="data-file" accept=".json,application/json" hidden><span id="data-status" role="status">可保存本次各任務的資料；匯入會取代目前填寫內容。</span></div><div class="layout">
+<section class="panel input-panel" aria-labelledby="task-heading">
+<div class="section-head"><span class="step">01</span><h2 id="task-heading">選擇今天的任務</h2></div>
+<div class="task-nav" role="group" aria-label="任務類型"><button type="button" class="task" data-key="recruit" aria-pressed="true">招生貼文</button><button type="button" class="task" data-key="event" aria-pressed="false">活動宣傳</button><button type="button" class="task" data-key="notice" aria-pressed="false">家長通知</button><button type="button" class="task" data-key="lesson" aria-pressed="false">教學設計</button><button type="button" class="task" data-key="poster" aria-pressed="false">海報生圖</button><button type="button" class="task" data-key="image" aria-pressed="false">專業生圖</button></div>
+<div id="task-desc" class="task-desc"></div><div class="reuse-tools" id="reuse-tools" hidden><label class="field" for="reuse-source">沿用其他任務已填資料</label><div class="reuse-row"><select id="reuse-source" aria-label="資料來源"></select><button class="secondary" id="reuse-data" type="button">帶入資料</button></div><span class="hint">只填入目前空白欄位，不覆蓋已有內容；帶入後請核對資訊。資料僅在本次頁面使用，匯出 JSON 可留待下次使用。</span></div>
+<form id="builder" novalidate>
+<div class="form-top"><h3>填入您的資料</h3></div>
+<div class="fields" id="fields"></div><div id="task-options" class="fields" style="margin-top:16px"></div>
+<hr class="divider">
+<div class="section-head"><span class="step">02</span><h2>設定表達方式</h2></div>
+<div class="settings"><label class="field">語氣<select id="tone"><option>親切自然，像老師與家長溝通</option><option>專業清楚，重點簡潔</option><option>活潑有趣，適度有感染力</option><option>溫暖同理，避免責備與施壓</option></select></label><label class="field">品牌／補習班名稱（選填）<input id="brand" placeholder="例如：您的補習班名稱" autocomplete="off"></label></div>
+<label class="field" style="margin-top:16px">其他要求（選填）<textarea id="extra" placeholder="例如：不要使用 emoji；保留我提供的活動名稱。"></textarea></label>
+<div class="actions"><button class="primary" type="submit">產生提示詞</button><button class="secondary" id="clear" type="button">清空本項資料</button></div>
+<p class="status" id="form-status" role="status" aria-live="polite">標示「必填」的欄位請填妥；未確認的資訊請填「待確認」。</p>
+</form></section>
+<section class="panel output-panel" aria-labelledby="output-heading">
+<div class="output-head"><div class="section-head" style="margin:0"><span class="step">03</span><h2 id="output-heading">您的提示詞</h2></div><span class="tag">產生後貼到 AI 使用</span></div>
+<textarea id="output" readonly aria-label="產生的提示詞" placeholder="填好左側資料，按「產生提示詞」。&#10;&#10;這裡會組合出完整指令，可直接複製到您使用的 AI 工具。"></textarea>
+<div class="output-meta"><span id="output-state" role="status">尚未產生</span><span id="length">0 字元</span></div>
+<div class="actions"><button class="primary" type="button" id="copy" disabled>複製提示詞</button><button class="secondary" type="button" id="download" disabled>下載文字檔</button></div>
+<div class="howto"><b>三步完成，第一次就能上手</b><ol><li>選擇任務，填寫已確認的資料。</li><li>按「產生提示詞」，檢查內容後複製。</li><li>貼到 AI 工具執行，再核對產出的文字或圖片。</li></ol></div>
+<p class="privacy">欄位資料僅在此頁面處理，工具不會上傳資料，也不會跨次開啟保存。重新整理或關閉前，可匯出填寫資料，或複製／下載需要的提示詞。</p>
+<details><summary>使用小提醒</summary><p>本工具負責組合提示詞。文字或圖片由您貼入的 AI 工具產生；海報與專業生圖任務需使用支援圖片生成的工具。請以匿名描述代替學生姓名、電話等個人資料，使用素材前先確認授權。</p></details>
+<div id="print-output"></div>
+</section>
+</div></main>
+<footer><span>包子媽｜補教專用提示詞產生器</span><span>先確認資料，再生成、修改與發布。</span></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const F=(id,label,placeholder,required=false,area=false,full=false)=>({id,label,placeholder,required,area,full});
+const tasks={
+recruit:{name:'招生貼文',desc:'把課程特色轉成家長看得懂的賣點，產出標題與社群招生文案。',role:'熟悉台灣補教業的招生行銷企劃',fields:[F('name','課程名稱','例如：兒童美語探索班',true),F('audience','招生對象','年級、程度或適合的學員',true),F('features','課程特色','已確認的教學內容、活動方式與特色',true,true,true),F('time','上課時間','每週幾、時段或開課日期'),F('quota','班級人數／名額','例如：8 人小班'),F('signup','洽詢／報名方式','例如：私訊洽詢',true),F('facts','其他已確認資訊','費用、地點、師資；未確認可留空',false,true,true)],outputs:'1. 用表格整理 3 項「課程特色 → 家長能理解的招生賣點」。\n2. 提供 3 個 FB／IG 招生標題，推薦其中 1 個。\n3. 使用推薦標題撰寫 150–200 字的 FB／IG 招生貼文，採短段落，結尾依提供的報名方式加入行動引導。'},
+event:{name:'活動宣傳',desc:'整理活動亮點、必要資訊與報名方式，產出可用的活動貼文。',role:'熟悉台灣補教業的活動行銷企劃',fields:[F('name','活動名稱','例如：Halloween English Party',true),F('audience','參加對象','例如：國小一至四年級',true),F('time','日期與時間','請提供年份、日期與開始／結束時間',true),F('quota','名額','例如：30 名'),F('features','活動亮點','列出實際安排的活動項目',true,true,true),F('signup','報名方式','填寫表單、私訊或其他已確認方式',true),F('place','地點／費用（選填）','僅填已確認內容'),F('notes','注意事項','穿著、攜帶物品、報名截止日期等',false,true,true)],outputs:'1. 提供 3 個吸引家長的活動標題，推薦其中 1 個。\n2. 以推薦標題撰寫 150–200 字的 FB／IG 活動貼文，分成短段落。\n3. 清楚呈現已確認的活動亮點、日期、時間、對象、名額與報名方式，結尾加入報名引導。'},
+notice:{name:'家長通知',desc:'將通知事項整理成容易閱讀的 LINE 訊息，清楚說明家長需要做什麼。',role:'重視家校溝通、表達清楚且有同理心的補習班老師',fields:[F('name','通知主題','例如：課程異動、攜帶物品提醒',true),F('audience','通知對象','例如：兒童美語 A 班家長',true),F('content','必須傳達的事情','發生什麼事、需要說明的原因與已確認細節',true,true,true),F('time','相關日期與時間','若涉及異動，請填原時段與新時段'),F('action','家長需要採取的行動','例如：回覆是否出席；不需回覆也請註明',true),F('notes','其他提醒／聯絡方式','僅填已確認內容',false,true,true)],outputs:'1. 提供一句清楚的通知標題。\n2. 撰寫一則 150 字內、適合 LINE 傳送的家長通知。\n3. 先說重點，再列出時間、事項與家長需採取的行動；只使用已提供的資訊。不用責備、恐嚇或造成焦慮的語氣。'},
+lesson:{name:'教學設計',desc:'依年級、程度與課堂時間，設計有目標、可操作的課程流程。',role:'能依學生程度設計活動與形成性評量的補教課程設計老師',fields:[F('name','科目與單元','例如：英語｜At the Market',true),F('audience','年級與程度','年級、先備知識與學習程度',true),F('goal','學習目標','下課時希望學生能完成什麼？',true,true,true),F('duration','課堂時間','例如：60 分鐘',true),F('size','人數與分組條件','例如：12 人，可分 3 組'),F('resources','可用教材與設備','例如：白板、字卡、投影機；若無也請說明'),F('needs','限制與教學需求','例如：不使用手機、需安排分層任務',false,true,true)],outputs:'1. 先列出具體可觀察的學習目標；若輸入資料有缺漏，列出待確認事項。\n2. 以表格規劃「時間、教學階段、教師引導、學生任務、教材與檢核方式」，依提供的總課時配置時間，各階段加總須等於總課時；若課時未確認，不自行假定。\n3. 提供 1 個可直接操作的互動活動，說明準備、規則與步驟。\n4. 提供基礎與進階兩種調整方式，以及 3 題課末檢核和參考答案。不得宣稱符合未提供的特定課綱或指定版本。'},
+poster:{name:'海報生圖',desc:'把已確認的活動或招生資訊，組成可貼入圖片生成工具的完整指令。',role:'熟悉補教宣傳與資訊排版的視覺企劃',fields:[F('name','活動／課程名稱','請填需出現在畫面上的正確名稱',true),F('audience','對象','年級或參加族群',true),F('headline','指定主標題（選填）','留空時以活動／課程名稱作為主標題'),F('features','3 項亮點','僅填已確認內容',true,true,true),F('time','日期與時間','不適用可填「不適用」'),F('quota','名額（選填）','例如：30 名'),F('signup','報名方式','請使用正確文字，不虛構連結',true),F('style','視覺風格','例如：明亮、溫暖、兒童插畫'),F('notes','其他必須呈現／禁止出現的內容','地點、費用、品牌色、文字禁用事項等',false,true,true)],outputs:''}
+};
+tasks.poster.fields.push(F('brandName','品牌／補習班名稱（選填）','海報上要顯示的正式名稱'),F('brandColor','品牌色（選填）','色彩名稱或色碼'),F('logo','Logo 使用說明（選填）','是否使用已提供素材、位置或保留空間；圖片須另附於 AI 工具',false,true,true));
+tasks.image={name:'專業生圖',desc:'將主體、場景、構圖、光影與材質，組合成可直接使用的完整專業生圖提示詞。描述越具體，畫面越貼近您的想法。',role:'善於將文字描述轉成清楚畫面的圖像創作者',fields:[F('subject','圖片主體','想畫什麼？請描述人物、動物、物件或其他主體',true,true,true),F('scene','場景與背景','例如：教室、公園、純色背景或想像中的世界'),F('action','動作與情境','主體正在做什麼？有哪些互動或表情？'),F('style','圖像風格','例如：水彩插畫、寫實攝影、扁平插畫'),F('light','色彩、光線與氛圍','例如：溫暖色調、自然光、輕鬆愉快'),F('composition','構圖與視角','例如：近景、俯視、主體置中、右側留白',false,true,true),F('texture','材質與細節（選填）','例如：紙張纖維、柔軟毛髮、霧面陶瓷、布料紋理',false,true,true),F('camera','鏡頭／空間表現（選填）','例如：平視中景、近距離特寫、淺景深、等距視角',false,true,true),F('exclude','不希望出現的內容（選填）','例如：雜亂背景、額外人物、恐怖元素',false,true,true)],outputs:''};
+const imageChoices={
+style:['寫實攝影','水彩插畫','扁平插畫','3D 立體風格','手繪繪本風格','日系動漫','油畫風格','簡約線稿'],
+light:['溫暖色調、柔和自然光、溫馨愉快','清新明亮、日間自然光、輕鬆活潑','低飽和色彩、柔和散射光、安靜療癒','冷色調、側光、高對比電影感','黃昏暖光、金色調、柔和浪漫','粉彩配色、均勻柔光、夢幻輕盈'],
+composition:['主體置中，畫面平衡','三分法構圖，主體位於視覺交點','左側主體，右側留白','右側主體，左側留白','對稱構圖，層次分明','俯視構圖，清楚呈現整體配置'],
+texture:['細緻紙張纖維與自然筆觸','柔軟蓬鬆毛髮與細緻層次','霧面陶瓷與柔和反光','自然木紋與溫潤質感','細緻布料織紋與自然皺褶','玻璃透明感與自然反射','簡潔平滑色塊，不強調表面紋理'],
+camera:['平視中景，比例自然','近距離特寫，聚焦主體細節','廣角全景，呈現環境空間','淺景深，主體清晰、背景柔化','等距視角，空間結構清楚','平面視角，以形狀和色塊呈現層次']
+};
+function usesChoices(f){return (current==='image'&&Object.hasOwn(imageChoices,f.id))||(current==='poster'&&f.id==='style');}
+function setCustomVisibility(id){const el=$('custom-'+id);if(el)el.hidden=$('f-'+id).value!=='__custom';}
+function fieldValue(f){const el=$('f-'+f.id);return usesChoices(f)&&el.value==='__custom'?$('custom-'+f.id).value.trim():el.value.trim();}
+function restoreField(f,values){const el=$('f-'+f.id),value=values[f.id]||'';if(usesChoices(f)){if(Array.from(el.options).some(o=>o.value===value))el.value=value;else{el.value='__custom';$('custom-'+f.id).value=value;}if(typeof values[f.id+'Custom']==='string')$('custom-'+f.id).value=values[f.id+'Custom'];setCustomVisibility(f.id);}else el.value=value;}
+function imageOutput(values){
+ const sections=[];
+ sections.push('【主體與故事畫面】\n'+values.subject+(values.action?'；動作、表情與互動：'+values.action:'；保持主體特徵清楚，使用符合題材的自然姿態')+'。動作要有可見的表情、姿勢或環境互動，不只停留在抽象情緒字眼；未提供的角色設定不可擅自指定。');
+ if(values.scene)sections.push('【場景】\n'+values.scene+'。以與主體互相呼應的元素建立前後層次，不以無關裝飾填滿畫面。');
+ const style=values.style||'風格協調、主體清楚';
+ const notes={
+ '水彩插畫':'透明水彩的自然暈染、輕盈筆觸與紙張纖維，形體清楚，避免塑膠光澤及不必要的寫實景深。',
+ '寫實攝影':'使用自然的照明、可信的材質反射與比例，避免過度磨皮、假銳化。',
+ '扁平插畫':'簡潔幾何輪廓與整齊色塊，少用紋理與立體陰影。',
+ '3D 立體風格':'強調立體體積、材質粗糙度、接觸陰影與自然光線。',
+ '手繪繪本風格':'保留手繪筆觸、角色造型一致與清楚的敘事層次。',
+ '簡約線稿':'以一致線條粗細與留白呈現，避免多餘材質效果。'
+ };
+ sections.push('【視覺語言】\n'+style+'。'+(notes[style]||'所有視覺元素遵守同一種風格，不混合衝突的材質表現。')+(values.texture?'\n材質重點：'+values.texture+'。':''));
+ if(values.composition||values.camera)sections.push('【構圖與鏡頭】\n'+[values.composition,values.camera].filter(Boolean).join('；')+'。主體重要部位完整，視覺焦點明確。');
+ if(values.light)sections.push('【色彩及光線】\n'+values.light+'。光影呈現方式應符合所選畫風。');
+ sections.push('【輸出】\n單張 '+$('f-image-ratio').value+' 比例圖片。'+($('image-text').value==='yes'?'僅生成使用者明確提供的文字，文字內容需準確；未指定文字不得自行創作。':'不包含文字、字母、數字、Logo、浮水印、QR Code。'));
+ if(values.exclude)sections.push('【排除】\n'+values.exclude+'。');
+ if($('extra').value.trim())sections.push('【其他指定】\n'+$('extra').value.trim());
+ sections.push('【品質檢查】\n檢查主體數量、五官與肢體結構、透視遮擋，以及構圖是否符合要求；不要增加未指定的重要角色或物件。');
+ return sections.join('\n\n');
+}
+
+const platforms={
+ facebook:{name:'Facebook',rule:'撰寫約 180–250 字。開頭以家長關心的實際問題切入，中段說明課程／活動特色及必要資訊，最後使用已確認的報名方式；段落清楚、不以焦慮行銷。'},
+ instagram:{name:'Instagram 貼文',rule:'撰寫約 120–180 字。用短而具體的首句吸引注意，重點適合手機閱讀，少量 emoji（若要求禁止則不用）；結尾以正確報名方式引導，提供 3–5 個相關標籤，不假設個人檔案有連結。'},
+ line:{name:'LINE',rule:'撰寫約 90–150 字。第一行直接說明要事，必要資訊分行清楚列出，報名方式簡短明確；不加 hashtag、不寫長篇鋪陳。'},
+ threads:{name:'Threads',rule:'撰寫約 100–180 字。自然對話式切入一個具體亮點，避免制式招生廣告語；分短段落，保留核心活動條件與報名方式，結尾可用自然提問而非強迫互動，不堆 hashtag。'},
+ story:{name:'IG 限時動態',rule:'提供 3 張獨立限動的文字稿，不生成圖片。第 1 張主標題及吸引目光的短句；第 2 張列出提供的亮點；第 3 張整理已確認的日期、時間、對象、名額及報名方式。每張 20–50 字為建議，必要資訊優先。'}
+};
+const hasPlatform=()=>current==='recruit'||current==='event';
+function selectedPlatforms(){return $('f-platform').value==='multi'?Array.from(document.querySelectorAll('[name="platform-choice"]:checked'),el=>el.value):[$('f-platform').value];}
+function togglePlatformChoices(){$('platform-choices').hidden=$('f-platform').value!=='multi';}
+function renderPlatforms(){
+ const box=document.createElement('div');box.className='platform-box field full';
+ const label=document.createElement('label');label.className='field';label.htmlFor='f-platform';label.textContent='發布平台';const select=document.createElement('select');select.id='f-platform';Object.entries(platforms).concat([['multi',{name:'同一份資料，產生多平台版本'}]]).forEach(([value,p])=>{const o=document.createElement('option');o.value=value;o.textContent=p.name;select.append(o);});label.append(select);box.append(label);
+ const choices=document.createElement('fieldset');choices.id='platform-choices';choices.hidden=true;const legend=document.createElement('legend');legend.textContent='選擇要產生的平台（至少一項）';choices.append(legend);Object.entries(platforms).forEach(([value,p])=>{const l=document.createElement('label');const c=document.createElement('input');c.type='checkbox';c.name='platform-choice';c.value=value;c.checked=value==='facebook'||value==='instagram';l.append(c,document.createTextNode(p.name));choices.append(l);});box.append(choices);const help=document.createElement('span');help.className='hint';help.textContent='依平台調整篇幅與呈現方式；必要資訊較多時，以完整、正確為優先。';box.append(help);$('fields').prepend(box);select.addEventListener('change',togglePlatformChoices);
+}
+function platformOutput(){const ids=selectedPlatforms();return (current==='recruit'?'先用表格整理 3 項「課程特色 → 家長能理解的招生賣點」。\n':'')+'先提出 3 個'+(current==='recruit'?'招生':'活動')+'標題，推薦其中 1 個。依推薦標題與同一份資料，分別產出以下平台版本，以平台名稱分段標示。不要只把相同文案重複貼上。\n'+ids.map(id=>platforms[id].name+'：'+platforms[id].rule).join('\n')+'\n上述字數為建議篇幅，必要資訊較多時可適度延長。各版本須保留已確認的對象、日期、時間、名額及報名方式；未提供、不適用或待確認的資訊不得自行補寫。只輸出已選的平台。';}
+let current='recruit',dirty=false,noticeType='general';const drafts=Object.create(null);
+const draftKey=()=>current==='notice'?'notice_'+noticeType:current;
+const noticeFields={general:tasks.notice.fields,change:[F('name','異動通知主題','例如：上課時間調整',true),F('audience','通知對象','班別或家長群組',true),F('original','原安排','原日期、時間與地點',true,true,true),F('updated','新安排','調整後的日期、時間與地點',true,true,true),F('reason','異動原因（選填）','僅填已確認的原因'),F('action','家長需採取的行動','回覆、確認或不需回覆',true),F('notes','其他提醒','補課、接送或聯絡方式',false,true,true)],feedback:[F('name','學習回饋主題','例如：本週閱讀表現',true),F('audience','通知對象','使用匿名代稱',true),F('observations','實際觀察','可觀察到的表現與具體事例',true,true,true),F('strengths','值得肯定的表現','不虛構成果'),F('support','下一步建議與支持','課堂及家庭可採取的做法',true,true,true),F('action','是否需要家長回覆（選填）','請說明回覆方式')],individual:[F('name','個別溝通主題','例如：課堂參與情形',true),F('audience','溝通對象','使用匿名代稱',true),F('observations','具體情況與事實','描述行為與情境，避免貼標籤',true,true,true),F('support','老師已採取的協助','僅填實際做法'),F('action','希望與家長討論的事項','具體問題或共同可行的下一步',true,true,true),F('notes','聯繫安排（選填）','可聯繫時段或方式')]};
+const noticeNames={general:'一般提醒',change:'課程異動',feedback:'學習回饋',individual:'個別溝通'};
+function selectControl(id,label,items){const l=document.createElement('label');l.className='field full';l.textContent=label;const el=document.createElement('select');el.id=id;items.forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;el.append(o)});l.append(el);return l;}
+function renderOptions(){
+ $('task-options').replaceChildren();
+ if(current==='notice'){const l=selectControl('notice-type','通知類型',Object.entries(noticeNames));$('fields').prepend(l);$('notice-type').value=noticeType;$('notice-type').addEventListener('change',e=>{const next=e.target.value;snapshot();noticeType=next;render();});}
+ if(current==='lesson'){
+ $('task-options').append(selectControl('lesson-detail','教案詳細程度',[['簡明流程，聚焦步驟與時間','簡明流程'],['完整教案，包含教師引導與活動步驟','完整教案']]));
+ $('task-options').append(selectControl('lesson-format','呈現格式',[['以表格為主，必要處補充說明','表格'],['以分段條列呈現，標明時間與教學階段','分段條列']]));
+ $('task-options').append(selectControl('lesson-language','教學語言',[['繁體中文說明','繁體中文'],['繁體中文說明，搭配適切的英文教學用語','中英雙語'],['教案與教師引導使用英文','英文']]));
+  $('task-options').append(selectControl('lesson-check','課時規劃檢查',[['include','含活動轉換／整理及成果檢核時間'],['simple','僅計主要教學活動（需提示可能的緩衝時間）']]));}
+ 
+}
+function customValues(){const out={};document.querySelectorAll('#task-options select').forEach(el=>out[el.id]=el.value);return out;}
+function lessonOutput(){return tasks.lesson.outputs.replace('以表格規劃', $('lesson-format').value.includes('表格')?'以表格規劃':'以分段條列規劃')+'\n教案詳細程度：'+$('lesson-detail').value+'。\n呈現格式：'+$('lesson-format').value+'。\n教學語言：'+$('lesson-language').value+'。依指定語言撰寫教案與教師引導。\n課時檢查：'+$('lesson-check').selectedOptions[0].textContent+'。每階段分配明確分鐘數，最後列出加總算式及總計；若無法合理容納所有活動，先提出簡化方案，不可暗中超時。依學生程度安排練習與課末檢核；額外設備標為建議準備。';}
+function noticeOutput(){return '通知類型：'+noticeNames[noticeType]+'。\n'+(noticeType==='general'?tasks.notice.outputs:noticeType==='change'?'提供清楚的標題及一則 LINE 課程異動通知，以「原安排／新安排」對照呈現，不混淆時段；說明已提供的原因及家長需採取的行動。':noticeType==='feedback'?'提供一則適合個別傳送的學習回饋，依「具體觀察 → 已提供的肯定表現（若有）→ 下一步支持」呈現。只依事實描述，不下診斷、不比較學生、不保證成效。':'提供一則適合個別傳送的家長溝通訊息，先描述事實與已採取的協助，再提出具體討論事項；同理、不責備、不貼標籤。')+'\n必要資訊完整，文字簡潔易讀，不虛構情節或學生成果。';}
+
+function snapshot(){const values={};tasks[current].fields.forEach(f=>{values[f.id]=$('f-'+f.id).value;if(usesChoices(f))values[f.id+'Custom']=$('custom-'+f.id).value;});if(current==='poster'){values.ratio=$('f-ratio').value;values.posterMode=$('poster-mode').value;values.posterText=$('poster-text').value;}if(current==='image'){values.imageRatio=$('f-image-ratio').value;values.imageText=$('image-text').value;}if(hasPlatform()){values.platform=$('f-platform').value;values.platforms=selectedPlatforms();}drafts[draftKey()]={values,tone:$('tone').value,brand:$('brand').value,extra:$('extra').value,options:customValues()};}
+function markDirty(){if($('output').value){$('print-output').textContent='';dirty=true;$('output').classList.add('dirty');$('output-state').textContent='資料已變更，請重新產生';$('copy').disabled=true;$('download').disabled=true;}}
+function render(){
+ if(current==='notice')tasks.notice.fields=noticeFields[noticeType];
+ const task=tasks[current];$('task-desc').textContent=task.desc;$('output-heading').textContent=current==='image'?'專業生圖提示詞':'您的提示詞';
+ document.querySelectorAll('.task').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.key===current)));
+ $('fields').replaceChildren();
+ task.fields.forEach(f=>{const label=document.createElement('label');label.className='field'+(f.full?' full':'');label.textContent=f.label;if(f.required){const req=document.createElement('span');req.className='required';req.textContent='必填';label.append(req);}const input=document.createElement(usesChoices(f)?'select':f.area?'textarea':'input');input.id='f-'+f.id;input.required=f.required;
+ if(usesChoices(f)){[['','未指定（選填）'],...imageChoices[f.id].map(v=>[v,v]),['__custom','自訂…']].forEach(([value,text])=>{const o=document.createElement('option');o.value=value;o.textContent=text;input.append(o)});label.append(input);const custom=document.createElement('input');custom.id='custom-'+f.id;custom.placeholder='請輸入自訂內容';custom.hidden=true;label.append(custom);input.addEventListener('change',()=>setCustomVisibility(f.id));}
+ else{input.placeholder=f.placeholder;input.autocomplete='off';label.append(input);}$('fields').append(label);});
+ renderOptions();
+ if(current==='poster'){const label=document.createElement('label');label.className='field full';label.textContent='圖片格式';const select=document.createElement('select');select.id='f-ratio';[['poster','1 張 4:5 直式海報'],['story','3 張 9:16 IG 限動圖']].forEach(([value,text])=>{const o=document.createElement('option');o.value=value;o.textContent=text;select.append(o)});label.append(select);$('fields').append(label);$('task-options').append(selectControl('poster-mode','產生階段',[['plan','第 1 階段：提出 2 種構想，等我選擇'],['create','第 2 階段：依我選定的構想製作圖片']]));$('task-options').append(selectControl('poster-text','文字處理方式',[['yes','生成包含繁體中文字的完整成品'],['no','只生成主視覺（文字交給 Canva 排版）']]));}
+ if(current==='image'){const label=document.createElement('label');label.className='field full';label.textContent='圖片比例';const select=document.createElement('select');select.id='f-image-ratio';[['1:1','1:1 正方形'],['4:5','4:5 直式'],['9:16','9:16 直式'],['16:9','16:9 橫式'],['3:2','3:2 橫式']].forEach(([value,text])=>{const o=document.createElement('option');o.value=value;o.textContent=text;select.append(o)});label.append(select);$('fields').append(label);$('task-options').append(selectControl('image-text','畫面文字',[['no','不包含任何文字'],['yes','允許指定文字（需在主體或其他要求中提供）']]));}
+ document.querySelector('.settings').hidden=['image','poster','lesson'].includes(current);
+ document.querySelector('.settings').previousElementSibling.querySelector('h2').textContent=current==='lesson'?'教學設定':(current==='image'||current==='poster')?'補充畫面要求':'設定表達方式';
+ if(hasPlatform())renderPlatforms();refreshReuse();
+ const saved=drafts[draftKey()];if(saved){Object.entries(saved.options||{}).forEach(([id,value])=>{if(['lesson-detail','lesson-format','lesson-language','lesson-check','poster-mode','poster-text','image-text','visual-style'].includes(id)&&$(id)){const el=$(id);if(Array.from(el.options).some(o=>o.value===value))el.value=value;}});task.fields.forEach(f=>restoreField(f,saved.values));if(['image','poster'].includes(current)&&!saved.values.style&&saved.options&&saved.options['visual-style'])restoreField(task.fields.find(f=>f.id==='style'),{style:saved.options['visual-style']});if(current==='poster'){$('f-ratio').value=saved.values.ratio||'poster';$('poster-mode').value=saved.values.posterMode||'plan';$('poster-text').value=saved.values.posterText||'yes';}if(current==='image'){$('f-image-ratio').value=saved.values.imageRatio||'1:1';$('image-text').value=saved.values.imageText||'no';}$('tone').value=saved.tone;$('brand').value=saved.brand;$('extra').value=saved.extra;if(hasPlatform()){$('f-platform').value=saved.values.platform||'facebook';document.querySelectorAll('[name="platform-choice"]').forEach(el=>el.checked=(saved.values.platforms||['facebook','instagram']).includes(el.value));togglePlatformChoices();}}else{$('tone').selectedIndex=current==='notice'?3:0;$('brand').value='';$('extra').value='';}
+$('form-status').textContent='標示「必填」的欄位請填妥；活動正式輸出須先確認關鍵資訊。';$('output').value='';$('print-output').textContent='';$('output').classList.remove('dirty');$('output-state').textContent='尚未產生';$('length').textContent='0 字元';$('copy').disabled=true;$('download').disabled=true;dirty=false;
+}
+const reuseMap={
+ 'recruit>event':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup'},
+ 'event>recruit':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup'},
+ 'recruit>poster':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup',facts:'notes'},
+ 'event>poster':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup',place:'notes'},
+ 'poster>event':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup'},
+ 'poster>recruit':{name:'name',audience:'audience',features:'features',time:'time',quota:'quota',signup:'signup'}
+};
+function refreshReuse(){
+ const options=Object.keys(drafts).filter(key=>reuseMap[key+'> '+current]||reuseMap[key+'>'+current]);
+ const box=$('reuse-tools'),select=$('reuse-source');select.replaceChildren();
+ options.forEach(key=>{const opt=document.createElement('option');opt.value=key;opt.textContent=tasks[key]?.name||key;select.append(opt);});box.hidden=!options.length;
+}
+$('reuse-data').addEventListener('click',()=>{
+ const source=$('reuse-source').value,map=reuseMap[source+'>'+current],draft=drafts[source];if(!map||!draft)return;
+ let count=0;for(const [from,to] of Object.entries(map)){const el=$('f-'+to),value=draft.values[from];if(el&&typeof value==='string'&&value.trim()&&!el.value.trim()){el.value=value;count++;}}
+ if(source==='recruit'&&current==='poster'&&draft.brand&&!$('f-brandName').value){$('f-brandName').value=draft.brand;count++;}
+ $('form-status').textContent=count?'已帶入 '+count+' 個空白欄位，請確認日期、名額、報名方式與文字。':'沒有可帶入的空白欄位，原有內容未改動。';markDirty();
+});
+document.querySelectorAll('.task-nav .task').forEach(b=>{const key=b.dataset.key;b.addEventListener('click',()=>{if(current===key)return;snapshot();current=key;render();});});
+$('builder').addEventListener('input',markDirty);$('builder').addEventListener('change',markDirty);
+$('clear').addEventListener('click',()=>{delete drafts[draftKey()];render();$('form-status').textContent='已清空本項資料，其他任務的資料仍保留。';$('f-'+tasks[current].fields[0].id).focus();});
+function posterOutput(values){
+ const title=values.headline||values.name,story=$('f-ratio').value==='story';
+ const plan=$('poster-mode').value==='plan',text=$('poster-text').value==='yes';
+ if(plan)return '只完成【第一階段：畫面企劃】，不要生成圖片。根據已確認的資料提出 2 種不同的視覺構想，各包含主視覺、人物／物件、場景、風格、構圖、文字區域與留白。比較兩種方案的優缺點，推薦其一後停下，等待使用者選擇；'+(story?'預計輸出 3 張獨立 9:16 IG 限動圖。':'預計輸出 1 張 4:5 直式海報。')+'不得提前進入第二階段。';
+ const common='請依照使用者已選定的畫面構想製作；若本次對話沒有可辨識的選定方案，先詢問構想或要求貼上方案，不自行假設已選定。保持一致的配色、虛構角色與視覺風格。';
+ if(story)return common+(text?'直接生成 3 張獨立 9:16 IG 限動圖片，不能拼在同一張。第 1 張：主標題「'+title+'」及簡短吸睛文案；第 2 張：呈現已確認的亮點；第 3 張：日期、時間、對象、名額與報名方式（只用已確認資料）。繁體中文字正確可讀，避開頂部與底部介面遮擋區。':'直接生成 3 張獨立 9:16 限動主視覺圖片，不要拼圖也不要加文字。三張分別是主題氛圍、亮點情境、報名資訊留白版；下方及上方保留後製排字安全範圍。');
+ return common+(text?'直接生成 1 張 4:5 直式完整海報，主標題精確使用「'+title+'」，清楚編排已確認的亮點、對象、時間、名額、報名方式；文字使用繁體中文且保有安全邊距。':'直接生成 1 張 4:5 直式海報主視覺，不生成任何文字、數字、Logo 或假 QR Code；預留清楚的標題、活動資訊與報名方式排版區域，方便後續在 Canva 排版。');
+}
+const contextLimits={"recruit": "僅依已確認的課程資料提煉賣點，不將課程特色擴大為保證成果。不自行新增費用、地點、優惠、師資資歷、試聽安排、名額或報名連結；不虛構學生見證、錄取率、進步幅度或限時稀缺資訊。保留正確的年級、上課時間與洽詢方式，不使用製造家長焦慮或貶低學生的文句。", "event": "活動名稱、日期、時間、參加對象、名額、活動內容與報名方式須與已提供資料一致。不自行增加費用、地點、優惠、贈品、獎項、服裝要求或報名連結，不捏造額滿、截止或限時資訊。各平台版本的事實須一致；縮短篇幅時不得刪除必要資訊或改變參加條件。", "poster": "海報上的主標題、活動／課程名稱與必要資訊須使用提供的正確文字，不新增費用、地點、優惠、贈品、師資或報名連結，不承諾未提供的成果。繁體中文字清楚易讀，保留重要資訊與安全邊距，避免裝飾遮擋文字；多張圖片須維持一致風格。不得把「待確認」或「不適用」排成正式活動資訊；關鍵資訊有缺漏或衝突時先詢問，不自行填入。僅使用已提供且獲授權的 Logo 素材；未提供時依使用說明保留位置，不捏造 Logo、QR Code 或網址。畫面可創意設計，人物採虛構插畫。", "image": "以指定主體、場景、動作、構圖、風格與比例為準，未指定的視覺細節可自然補足；若要求互相衝突，先詢問，不自行改掉核心主體。只生成圖片，不加文字、字母、數字、Logo、浮水印或 QR Code，不套用海報資訊或招生文案。不希望出現的元素須排除。人物為虛構角色，不冒充真實學生，也不依個人資料重建人物。"};
+const noticeLimits={"general": "只傳達已提供的通知事項、時間、地點與家長需採取的行動，不新增收費、規定、聯繫方式或截止時間。避免讓提醒變成責備或招生推銷。", "change": "清楚區分原安排與新安排，不混用日期、時段、地點或班別。不編造異動原因、補課、退款、接送或費用政策；未確認的安排先列待確認，不作確定承諾。", "feedback": "僅依實際觀察與具體事例描述學習情況，不虛構成績、進步、測驗結果或家長回應。未提供的優點不得為了肯定而捏造。不診斷、不貼標籤、不公開比較學生，不保證學習成效；將觀察事實與建議分開。", "individual": "分清已觀察的事實、老師已採取的協助與建議討論事項，不推測學生動機或家庭狀況，不編造對話、承諾或家長反應。不責備、威脅、下診斷或貼標籤；使用匿名代稱，適合個別傳送，不揭露其他學生資訊。"};
+function taskLimits(){if(current==='lesson')return '1. 依已提供的年級、程度、先備知識與學習目標設計，不假定學生已具備未說明的能力。\n2. 各階段時間加總須等於已確認的總課時，須包含明確的練習、活動轉場及課末檢核時間，且列出分鐘數加總；活動安排須符合已提供的人數、分組條件與設備。\n3. 優先使用現有教材與設備；額外資源須明確標為「建議準備」，不得當作已備妥。\n4. 活動步驟須具體可操作、適齡且兼顧安全，提供程度差異的調整方式，不羞辱、貼標籤或公開比較學生。\n5. 評量須對應學習目標，參考答案與解題說明須正確；開放題提供評分重點，不宣稱只有單一答案。\n6. 不虛構教材來源、課綱對應、學生表現或評量結果，不使用真實學生個資；缺少關鍵資料時先列出待確認事項，設計上的假設須明確標示。';const text=current==='notice'?noticeLimits[noticeType]:contextLimits[current];const adjusted=current==='poster'&&$('poster-text').value==='no'?text.replace('繁體中文字清楚易讀，保留重要資訊與安全邊距，避免裝飾遮擋文字；','僅輸出無文字主視覺，預留後製排字的安全區域；'):text;return adjusted+(current==='image'?'':'\n未確認的資料不得寫成已確認事實；缺少完成任務所需的關鍵資訊時，先列出待確認事項。不主動要求或加入真實學生個資。');}
+function validateFacts(values){
+ const invalid=v=>!v||/^(待確認|未確認|待定|不知道|tbd|\?+|不適用)$/i.test(v.trim());
+ const errors=[];
+ if(current==='event' || current==='poster'){
+  for(const [id,name] of [['name','活動／課程名稱'],['audience','參加對象'],['features','活動亮點'],['signup','報名方式']])if(invalid(values[id]))errors.push(name+'尚未確認');
+  if(current==='event'&&invalid(values.time))errors.push('日期與時間尚未確認');
+  if(current==='poster'&&$('poster-mode').value==='create'&&$('poster-text').value==='yes'&&(!values.time||/^(待確認|未確認|待定)$/i.test(values.time)))errors.push('完整海報的日期時間需先確認；若不適用請填「不適用」');
+ }
+ if(current==='lesson'&&(!/\d+\s*(分鐘|分|小時|hr|hour)/i.test(values.duration)||/待確認|未確認|待定/.test(values.duration)))errors.push('課堂時間請填明確分鐘或小時數');
+ if(current==='image'&&invalid(values.subject))errors.push('圖片主體尚未確認');
+ return errors.length?['請先確認：'+errors.join('、')+'。若只是企劃草稿，請補齊資料後再產生。']:[];
+}
+$('builder').addEventListener('submit',e=>{
+ e.preventDefault();const task=tasks[current];const missing=task.fields.find(f=>f.required&&!fieldValue(f));if(missing){$('form-status').textContent='請填寫「'+missing.label+'」；未確認可填「待確認」。';$('f-'+missing.id).focus();return;}
+ if(hasPlatform()&&!selectedPlatforms().length){$('form-status').textContent='請至少選擇一個發布平台。';$('platform-choices').querySelector('input').focus();return;}
+ const values={};task.fields.forEach(f=>values[f.id]=fieldValue(f));
+ const concerns=validateFacts(values);if(concerns.length){$('form-status').textContent=concerns.join('；');$('form-status').classList.add('validation-note');return;}$('form-status').classList.remove('validation-note');
+ const facts=task.fields.filter(f=>values[f.id]).map(f=>f.label.replace('（選填）','')+'：'+values[f.id]).join('\n');
+ const brand=current==='poster'?'':$('brand').value.trim();const extra=$('extra').value.trim();
+ let result='你是'+task.role+(current==='lesson'?'。依指定教學語言完成以下任務。\n\n【已提供資料】\n':'。請使用繁體中文完成以下任務。\n\n【已提供資料】\n')+(brand?'品牌／補習班名稱：'+brand+'\n':'')+facts+'\n\n【任務與輸出】\n'+(hasPlatform()?platformOutput():current==='lesson'?lessonOutput():current==='notice'?noticeOutput():(current==='poster'?posterOutput(values):task.outputs))+(['poster','lesson','image'].includes(current)?'':'\n\n【表達方式】\n'+$('tone').value+'。')+(extra?'\n其他要求：'+extra:'')+'\n\n【限制】\n'+taskLimits();
+ if(current==='image')result=imageOutput(values);
+ $('output').value=result;$('print-output').textContent=result;$('output').classList.remove('dirty');$('length').textContent=result.length+' 字元';$('output-state').textContent='已產生｜'+task.name;$('form-status').textContent='提示詞已產生，可檢查後複製至 AI 工具使用。';$('copy').disabled=false;$('download').disabled=false;dirty=false;snapshot();if(matchMedia('(max-width:900px)').matches){document.querySelector('.output-panel').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+});
+function toast(message){$('toast').textContent=message;$('toast').classList.add('visible');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),4500);}
+$('copy').addEventListener('click',async()=>{if(dirty||!$('output').value)return;const text=$('output').value;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);toast('提示詞已複製，可貼到 AI 工具使用。');return;}}catch(e){}const y=window.scrollY;$('output').focus({preventScroll:true});$('output').select();let ok=false;try{ok=document.execCommand('copy');}catch(e){}window.scrollTo(0,y);toast(ok?'提示詞已複製，可貼到 AI 工具使用。':'已選取提示詞，請按 Ctrl+C，或長按文字選擇「拷貝」。');});
+$('download').addEventListener('click',()=>{if(dirty||!$('output').value)return;const blob=new Blob(['\uFEFF'+$('output').value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='補教提示詞_'+tasks[current].name+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('已準備下載文字檔。');});
+
+function saveFile(text,name,type){const blob=new Blob([text],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);}
+$('export-data').addEventListener('click',()=>{snapshot();saveFile(JSON.stringify({app:'buxiban-prompt-builder',version:1,current,noticeType,drafts},null,2),'補教提示詞_填寫資料.json','application/json;charset=utf-8');$('data-status').textContent='已匯出各任務填寫資料，可於下次開啟時匯入。';});
+$('import-data').addEventListener('click',()=>$('data-file').click());
+$('data-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{
+ if(file.size>1000000)throw Error('檔案過大');
+ const data=JSON.parse(await file.text());const keys=['recruit','event','lesson','poster','image',...Object.keys(noticeFields).map(k=>'notice_'+k)];
+ if(data.app!=='buxiban-prompt-builder'||data.version!==1||!Object.hasOwn(tasks,data.current)||!Object.hasOwn(noticeFields,data.noticeType)||!data.drafts||typeof data.drafts!=='object'||Array.isArray(data.drafts))throw Error('格式不符');
+ const clean=Object.create(null);
+ for(const [key,draft] of Object.entries(data.drafts)){
+ if(!keys.includes(key)||!draft||typeof draft!=='object'||!draft.values||typeof draft.values!=='object'||Array.isArray(draft.values))throw Error('資料格式不符');
+ for(const value of Object.values(draft.values)){if(!(typeof value==='string'||Array.isArray(value)&&value.every(v=>typeof v==='string')))throw Error('欄位格式不符');}
+ if(!['tone','brand','extra'].every(k=>typeof draft[k]==='string'))throw Error('設定格式不符');
+ if(draft.options&&(typeof draft.options!=='object'||Array.isArray(draft.options)||!Object.values(draft.options).every(v=>typeof v==='string')))throw Error('選項格式不符');
+ clean[key]={values:JSON.parse(JSON.stringify(draft.values)),tone:draft.tone,brand:draft.brand,extra:draft.extra,options:draft.options||{}};
+ }
+ Object.keys(drafts).forEach(k=>delete drafts[k]);Object.assign(drafts,clean);current=data.current;noticeType=data.noticeType;render();$('data-status').textContent='已匯入填寫資料，請確認後重新產生提示詞。';
+ }catch(err){$('data-status').textContent='無法匯入，請選擇由本工具匯出的有效資料檔；目前內容已保留。';}finally{e.target.value='';}});
+render();
+})();
+</script>
+</body></html>
+
+
+
